@@ -1,5 +1,6 @@
 import 'package:eggs/blocs/app.bloc.dart';
 import 'package:eggs/widgets/action-buttons.widget.dart';
+import 'package:eggs/widgets/eggs.widget.dart';
 import 'package:eggs/widgets/progress.widget.dart';
 import 'package:eggs/widgets/type-buttons.widget.dart';
 import 'package:flutter/material.dart';
@@ -12,35 +13,32 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       body: Container(
-        child: Column(
+        child: ListView(
           children: <Widget>[
             SizedBox(
-              height: 60,
+              height: 50,
             ),
             Text(
-              bloc.selected,
+              "Perfect Eggs",
+              style: TextStyle(
+                fontSize: 34,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
             ),
-            Text(
-              bloc.state,
-            ),
-            Text(
-              bloc.time.toString(),
-            ),
-            Text(
-              bloc.seconds.toString(),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            TypeButtons(),
-            SizedBox(
-              height: 10,
-            ),
-            ActionButtons(),
-            SizedBox(
-              height: 10,
+            Eggs(),
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: TypeButtons(),
             ),
             Progress(),
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: ActionButtons(),
+            ),
           ],
         ),
       ),
